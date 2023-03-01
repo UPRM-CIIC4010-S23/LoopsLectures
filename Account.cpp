@@ -106,13 +106,9 @@ public:
 // type within the vector of Account's. Returns -1 if no such Account exists.
 int Account::findByType(vector<Account> accounts, AccountType type)
 {
-
-    for (int i=0; i<accounts.size(); i++) {
-        if (accounts[i].getType() == type) {
-            return i;
-        }
-    }
+    // YOUR CODE HERE
     return -1;
+
 }
 
 // EXERCISE #2: Returns de count of Account's of the parameter type that exist in the
@@ -120,11 +116,7 @@ int Account::findByType(vector<Account> accounts, AccountType type)
 int Account::countByType(vector<Account> accounts, AccountType type)
 {
     int result = 0;
-    for(Account a : accounts) {
-        if (a.getType() == type) {
-            result++;
-        }
-    }
+    // YOUR CODE HERE
     return result;
 }
 
@@ -134,11 +126,7 @@ int Account::largestBalance(vector<Account> accounts)
 {
     if (accounts.empty()) return -1;
     int maxPos = 0;
-    for(int i = 1; i < accounts.size(); i++) {
-        if (accounts[i].getBalance() > accounts[maxPos].getBalance()) {
-            maxPos = i;
-        }
-    }
+    // YOUR CODE HERE
     return maxPos;
 }
 
@@ -148,32 +136,17 @@ int Account::largestBalance(vector<Account> accounts)
 double Account::averageBalance(vector<Account> accounts, AccountType type)
 {
 
-    if (accounts.empty()) return -1;
-    double totalBalance = 0;
-    int totalAccounts = 0;
-    for (Account a : accounts) {
-        if (a.getType() == type) {
-            totalBalance += a.getBalance();
-            totalAccounts ++;
-        }
-    }
-
-    return ((totalAccounts > 0) ? (totalBalance / totalAccounts) : -1);
+    // YOUR CODE HERE
+    return 0;
 
 }
 
 // EXERCISE #5: Returns true if there are at least two Account's of the same type and
 // with tehe same account number within the parametter vector.
-bool Account::hasDuplicates(vector<Account> accounts) {
+bool Account::hasDuplicates(vector<Account> accounts) 
+{
 
-    for (int i=0; i<accounts.size(); i++) {
-        for (int j=i+1; j<accounts.size(); j++) {
-            if ((accounts[i].getAccNo() == accounts[j].getAccNo()) && 
-            (accounts[i].getType() == accounts[j].getType())) {
-                return true;
-            }
-        }
-    } 
+    // YOUR CODE HERE
     return false;
 }
 
