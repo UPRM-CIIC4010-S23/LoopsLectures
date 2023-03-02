@@ -106,7 +106,13 @@ public:
 // type within the vector of Account's. Returns -1 if no such Account exists.
 int Account::findByType(vector<Account> accounts, AccountType type)
 {
-    // YOUR CODE HERE
+    int pos= 0;
+    for (auto it = accounts.begin(); it != accounts.end(); it++) {
+        if (it->getType() == type) {
+            return pos;
+        }
+        pos++;
+    }
     return -1;
 
 }
@@ -115,19 +121,32 @@ int Account::findByType(vector<Account> accounts, AccountType type)
 // parameter vector.
 int Account::countByType(vector<Account> accounts, AccountType type)
 {
-    int result = 0;
-    // YOUR CODE HERE
-    return result;
+    int accountNumber = 0;
+    for (auto it = accounts.begin(); it != accounts.end(); it++) {
+        if (it->getType() == type) {
+            accountNumber++;
+        }
+    }
+    return accountNumber;
 }
 
 // EXERCISE #3: Return the position of the Account with the largest balance in the
 // parametter vector. Returns -1 if the vector is empty.
-int Account::largestBalance(vector<Account> accounts)
-{
-    if (accounts.empty()) return -1;
+int Account::largestBalance(vector<Account> accounts) {
+    if (accounts.empty())
+        return -1;
+    auto maxIt = accounts.begin();
+    int pos = 0;
     int maxPos = 0;
-    // YOUR CODE HERE
+    for (auto it = accounts.begin() + 1; it != accounts.end(); it++) {
+        if (it->getBalance() > maxIt->getBalance()) {
+            maxIt = it;
+            maxPos = pos;
+        }
+        pos++;
+    }
     return maxPos;
+
 }
 
 // EXERCISE #4: Returns the average balance of all the Account's of the parameter type
@@ -176,9 +195,9 @@ void Account::removeAllNegative(vector<Account> &accounts)
 // in the parameter vectors.
 vector<Account> Account::combine(vector<Account> v1, vector<Account> v2)
 {
-
+    vector<Account> result;
     // YOUR CODE HERE
-
+    return result;
 }
 
 //----------------------TEST CASES-----------------------
@@ -223,18 +242,18 @@ int main()
     vector<Account> combineVector2{ca1, ca2, sa3};
 
     cout << "Test findByType" << endl;
-    cout << Account::findByType(emptyVector, AccountType::ENTERPRISE) << endl; // -1
-    cout << Account::findByType(savingsVector, AccountType::SAVINGS) << endl;  // 0
-    cout << Account::findByType(savingsVector, AccountType::CHECKING) << endl; // -1
-    cout << Account::findByType(mixedVector1, AccountType::CHECKING) << endl;  // 5
-    cout << Account::findByType(mixedVector1, AccountType::SAVINGS) << endl;   // 0
+    cout << "FindByType #1: " << ((Account::findByType(emptyVector, AccountType::ENTERPRISE) == -1) ? "Passed" : "Failed") << endl; // -1
+    cout << "FindByType #2: " << ((Account::findByType(savingsVector, AccountType::SAVINGS) == 0)  ? "Passed" : "Failed") << endl;  // 0
+    cout << "FindByType #3: " << ((Account::findByType(savingsVector, AccountType::CHECKING) == -1) ? "Passed" : "Failed") << endl; // -1
+    cout << "FindByType #4: " << ((Account::findByType(mixedVector1, AccountType::CHECKING) == 5) ? "Passed" : "Failed") << endl;  // 5
+    cout << "FindByType #5: " << ((Account::findByType(mixedVector1, AccountType::SAVINGS) == 0) ? "Passed" : "Failed") << endl;   // 0
 
     cout << "Test countByType" << endl;
-    cout << Account::countByType(emptyVector, AccountType::ENTERPRISE) << endl; // 0
-    cout << Account::countByType(savingsVector, AccountType::SAVINGS) << endl;  // 5
-    cout << Account::countByType(savingsVector, AccountType::CHECKING) << endl; // 0
-    cout << Account::countByType(mixedVector1, AccountType::CHECKING) << endl;  // 3
-    cout << Account::countByType(mixedVector1, AccountType::SAVINGS) << endl;   // 5
+    cout << "CountByType #1: " << ((Account::countByType(emptyVector, AccountType::ENTERPRISE) == 0) ? "Passed" : "Failed") << endl; // 0
+    cout << "CountByType #2: " << ((Account::countByType(savingsVector, AccountType::SAVINGS) == 5) ? "Passed" : "Failed") << endl;  // 5
+    cout << "CountByType #3: " << ((Account::countByType(savingsVector, AccountType::CHECKING) == 0) ? "Passed" : "Failed") << endl; // 0
+    cout << "CountByType #4: " << ((Account::countByType(mixedVector1, AccountType::CHECKING) == 3) ? "Passed" : "Failed") << endl;  // 3
+    cout << "CountByType #5: " << ((Account::countByType(mixedVector1, AccountType::SAVINGS) == 5) ? "Passed" : "Failed") << endl;   // 5
 
     cout << "Test largestBalance" << endl;
     cout << Account::largestBalance(emptyVector) << endl;    // -1
