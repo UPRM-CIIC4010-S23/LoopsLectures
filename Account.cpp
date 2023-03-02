@@ -256,11 +256,11 @@ int main()
     cout << "CountByType #5: " << ((Account::countByType(mixedVector1, AccountType::SAVINGS) == 5) ? "Passed" : "Failed") << endl;   // 5
 
     cout << "Test largestBalance" << endl;
-    cout << Account::largestBalance(emptyVector) << endl;    // -1
-    cout << Account::largestBalance(savingsVector) << endl;  // 1
-    cout << Account::largestBalance(checkingVector) << endl; // 2
-    cout << Account::largestBalance(mixedVector1) << endl;   // 7
-    cout << Account::largestBalance(mixedVector2) << endl;   // 2
+    cout << "largestBalance #1: " << ((Account::largestBalance(emptyVector) == -1) ? "Passed" : "Failed") << endl;    // -1
+    cout << "largestBalance #2: " << ((Account::largestBalance(savingsVector) == 1) ? "Passed" : "Failed") << endl;  // 1
+    cout << "largestBalance #3: " << ((Account::largestBalance(checkingVector) == 2) ? "Passed" : "Failed") << endl; // 2
+    cout << "largestBalance #4: " << ((Account::largestBalance(mixedVector1) == 7) ? "Passed" : "Failed") << endl;   // 7
+    cout << "largestBalance #5: " << ((Account::largestBalance(mixedVector2) == 2) ? "Passed" : "Failed") << endl;   // 2
 
     cout << "Test averageBalance" << endl;
     cout << Account::averageBalance(emptyVector, AccountType::SAVINGS) << endl;    // -1
