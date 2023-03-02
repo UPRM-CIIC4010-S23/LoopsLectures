@@ -270,14 +270,14 @@ int main()
     cout << "AverageBalance #5: " << ((Account::averageBalance(mixedVector2, AccountType::SAVINGS) == 833.75) ? "Passed " : "Failed ") << endl;   // 833.75
 
     cout << "Test hasDuplicates" << endl;
-    cout << (Account::hasDuplicates(emptyVector) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(savingsVector) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(checkingVector) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(mixedVector1) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(mixedVector2) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(duplicateVector1) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(duplicateVector2) ? "TRUE" : "FALSE") << endl;
-    cout << (Account::hasDuplicates(duplicateVector3) ? "TRUE" : "FALSE") << endl;
+    cout << (Account::hasDuplicates(emptyVector) ? "Failed" : "Passed") << endl;
+    cout << (Account::hasDuplicates(savingsVector) ? "Failed" : "Passed") << endl;
+    cout << (Account::hasDuplicates(checkingVector) ? "Failed" : "Passed") << endl;
+    cout << (Account::hasDuplicates(mixedVector1) ? "Failed" : "Passed") << endl;
+    cout << (Account::hasDuplicates(mixedVector2) ? "Failed" : "Passed") << endl;
+    cout << (Account::hasDuplicates(duplicateVector1) ? "Passed" : "Failed") << endl;
+    cout << (Account::hasDuplicates(duplicateVector2) ? "Passed" : "Failed") << endl;
+    cout << (Account::hasDuplicates(duplicateVector3) ? "Passed" : "Failed") << endl;
 
     cout << "Test removeFirstNegative 1" << endl;
     Account::removeFirstNegative(emptyVector);
