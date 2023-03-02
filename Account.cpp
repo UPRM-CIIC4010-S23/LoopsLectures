@@ -231,7 +231,7 @@ int main()
     vector<Account> savingsVector{sa1, sa2, sa3, sa4, sa5};
     vector<Account> checkingVector{ca1, ca2, ca3};
     vector<Account> mixedVector1{sa1, sa2, sa3, sa4, sa5, ca1, ca2, ca3};
-    vector<Account> mixedVector2{ca1, ca2, ca3, sa1, sa2, sa3, sa4, sa5};
+    vector<Account> mixedVector2{ca1, ca2, ca3, sa1, sa2, sa3, sa5};
     vector<Account> duplicateVector1{ca1, ca2, ca3, sa1, sa2, sa3, sa4, sa5, ca1};
     vector<Account> duplicateVector2{ca1, ca2, ca3, sa1, sa2, sa3, sa4, ca3, sa5};
     vector<Account> duplicateVector3{ca1, ca1, ca2, ca3, sa1, sa2, sa3, sa4, sa5};
@@ -256,18 +256,18 @@ int main()
     cout << "CountByType #5: " << ((Account::countByType(mixedVector1, AccountType::SAVINGS) == 5) ? "Passed" : "Failed") << endl;   // 5
 
     cout << "Test largestBalance" << endl;
-    cout << "largestBalance #1: " << ((Account::largestBalance(emptyVector) == -1) ? "Passed" : "Failed") << endl;    // -1
-    cout << "largestBalance #2: " << ((Account::largestBalance(savingsVector) == 1) ? "Passed" : "Failed") << endl;  // 1
-    cout << "largestBalance #3: " << ((Account::largestBalance(checkingVector) == 2) ? "Passed" : "Failed") << endl; // 2
-    cout << "largestBalance #4: " << ((Account::largestBalance(mixedVector1) == 7) ? "Passed" : "Failed") << endl;   // 7
-    cout << "largestBalance #5: " << ((Account::largestBalance(mixedVector2) == 2) ? "Passed" : "Failed") << endl;   // 2
+    cout << "LargestBalance #1: " << ((Account::largestBalance(emptyVector) == -1) ? "Passed" : "Failed") << endl;    // -1
+    cout << "LargestBalance #2: " << ((Account::largestBalance(savingsVector) == 1) ? "Passed" : "Failed") << endl;  // 1
+    cout << "LargestBalance #3: " << ((Account::largestBalance(checkingVector) == 2) ? "Passed" : "Failed") << endl; // 2
+    cout << "LargestBalance #4: " << ((Account::largestBalance(mixedVector1) == 7) ? "Passed" : "Failed") << endl;   // 7
+    cout << "LargestBalance #5: " << ((Account::largestBalance(mixedVector2) == 2) ? "Passed" : "Failed") << endl;   // 2
 
     cout << "Test averageBalance" << endl;
-    cout << Account::averageBalance(emptyVector, AccountType::SAVINGS) << endl;    // -1
-    cout << Account::averageBalance(savingsVector, AccountType::SAVINGS) << endl;  // 1
-    cout << Account::averageBalance(checkingVector, AccountType::SAVINGS) << endl; // 2
-    cout << Account::averageBalance(mixedVector1, AccountType::SAVINGS) << endl;   // 7
-    cout << Account::averageBalance(mixedVector2, AccountType::SAVINGS) << endl;   // 2
+    cout << "AverageBalance #1: " << ((Account::averageBalance(emptyVector, AccountType::SAVINGS) == -1) ? "Passed " : "Failed ") << endl;    // -1
+    cout << "AverageBalance #2: " << ((Account::averageBalance(savingsVector, AccountType::SAVINGS) == 698.8) ? "Passed " : "Failed ") << endl;  // 698.8
+    cout << "AverageBalance #3: " << ((Account::averageBalance(checkingVector, AccountType::SAVINGS) == -1) ? "Passed " : "Failed ") << endl; // -1
+    cout << "AverageBalance #4: " << ((Account::averageBalance(mixedVector1, AccountType::SAVINGS) == 698.8) ? "Passed " : "Failed ") << endl;   // 698.8
+    cout << "AverageBalance #5: " << ((Account::averageBalance(mixedVector2, AccountType::SAVINGS) == 833.75) ? "Passed " : "Failed ") << endl;   // 833.75
 
     cout << "Test hasDuplicates" << endl;
     cout << (Account::hasDuplicates(emptyVector) ? "TRUE" : "FALSE") << endl;
