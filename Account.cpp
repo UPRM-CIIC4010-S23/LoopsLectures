@@ -136,7 +136,7 @@ int Account::largestBalance(vector<Account> accounts) {
     if (accounts.empty())
         return -1;
     auto maxIt = accounts.begin();
-    int pos = 0;
+    int pos = 1;
     int maxPos = 0;
     for (auto it = accounts.begin() + 1; it != accounts.end(); it++) {
         if (it->getBalance() > maxIt->getBalance()) {
@@ -156,6 +156,9 @@ double Account::averageBalance(vector<Account> accounts, AccountType type)
 {
 
     // YOUR CODE HERE
+
+    
+
     return 0;
 
 }
