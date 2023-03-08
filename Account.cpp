@@ -156,10 +156,20 @@ double Account::averageBalance(vector<Account> accounts, AccountType type)
 {
 
     // YOUR CODE HERE
+    double totalBalance = 0;
+    int numAccounts = 0;
+    for (auto it = accounts.begin(); it != accounts.end(); it++) {
+        if (it->getType() == type) {
+            totalBalance += it->getBalance();
+            numAccounts++;
+        }
+    }
 
-    
-
-    return 0;
+    if (numAccounts > 0) {
+        return totalBalance / numAccounts;
+    } else {
+        return -1;
+    }
 
 }
 
@@ -169,6 +179,17 @@ bool Account::hasDuplicates(vector<Account> accounts)
 {
 
     // YOUR CODE HERE
+    for (auto it1 = accounts.begin(); it1 != accounts.end(); it1++) {
+
+        for (auto it2 = it1 + 1; it2 != accounts.end(); it2++) {
+
+            if ((it1->getAccNo() == it2->getAccNo()) && (it1->getType() == it2->getType())) {
+                return true;
+            }
+
+        }
+
+    }
     return false;
 }
 
@@ -178,6 +199,16 @@ void Account::removeFirstNegative(vector<Account> &accounts)
 {
 
     // YOUR CODE HERE
+    auto posIt = accounts.end();
+    for (auto it = accounts.begin(); it != accounts.end(); it++) {
+        if (it->getBalance() < 0) {
+            posIt = it;
+            break;
+        }
+    }
+    if (posIt != accounts.end()) {
+        accounts.erase(posIt);
+    }
 
 }
 
@@ -187,6 +218,14 @@ void Account::removeAllNegative(vector<Account> &accounts)
 {
 
     // YOUR CODE HERE
+    auto it = accounts.begin();
+    while (it != accounts.end()) {
+        if (it->getBalance() < 0) {
+            it = accounts.erase(it);
+        } else {
+            it++;
+        }
+    }
 
 }
 
